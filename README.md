@@ -1,39 +1,5 @@
-#Elera
+<h1>Elera: A Virtual Assistant</h1> <p>Elera is a virtual assistant that can perform various tasks using voice commands. It can search the web, tell jokes, write notes, play music, and more.</p>
 
-first install these using pip install in your terminal before running the code
----------------------
-pip install pyttsx3
-pip install SpeechRecognition
-pip install wikipedia
-pip install pyjokes
-pip install wolframalpha
-pip install requests
----------------------
+<h2>Installation</h2> <p>To run Elera, you need to install some dependencies using <code>pip install</code> in your terminal. The dependencies are:</p> <ul> <li>pyttsx3</li> <li>SpeechRecognition</li> <li>wikipedia</li> <li>pyjokes</li> <li>wolframalpha</li> <li>requests</li> <li>PyAudio</li> </ul>
 
-
-command list:
-"open youtube" 
-"open google"
-"open wikipedia"
-"open facebook"
-"open twitter"
-"open yahoo"
-"open stack overflow"
-"open amazon"
-"show me .... on wikipedia" -- the virtual assitant you give you a small description of the thing you ask for using wikiipedia
-"joke"-virtual assitant will tell you a joke
-"write a note" -- Elera will write a note for you and put it in a .txt file
-"show the note -- Elera will show the said nite
-"play some music" -- Elera will give you music
-"how are you"
-"i love you"
-"what is your name"
-"who created you"
-"weather" -- Elera will ask you the city and give you the temp, humdity and weather description
-"time" -- Elera will give you the time"
-"wolf" -- you can ask any computation or geographic questions to Elera for example "What is the capital of England?" or "what is 5 * 5"
-flip a coin -- Elera will flip a coin and give you either Tails or Heads
-exit -- The Virtual Assitant will say goodbye and break
-
-comming soon:
-sending/reading emails
+<h2>Usage</h2> <p>To use Elera, you need to speak to your microphone and say one of the following commands:</p> <ul> <li>“open youtube” - Elera will open YouTube in your browser.</li> <li>“open google” - Elera will open Google in your browser.</li> <li>“open wikipedia” - Elera will open Wikipedia in your browser.</li> <li>“open facebook” - Elera will open Facebook in your browser.</li> <li>“open twitter” - Elera will open Twitter in your browser.</li> <li>“open yahoo” - Elera will open Yahoo in your browser.</li> <li>“open stack overflow” - Elera will open Stack Overflow in your browser.</li> <li>“open amazon” - Elera will open Amazon in your browser.</li> <li>“show me … on wikipedia” - Elera will give you a small description of the thing you ask for using Wikipedia. For example, “show me Albert Einstein on wikipedia”.</li> <li>“joke” - Elera will tell you a joke.</li> <li>“write a note” - Elera will write a note for you and save it in a .txt file.</li> <li>“show the note” - Elera will show you the note that you wrote.</li> <li>“play some music” - Elera will play some music for you.</li> <li>“how are you” - Elera will tell you how it is feeling.</li> <li>“i love you” - Elera will respond to your affection.</li> <li>“what is your name” - Elera will tell you its name.</li> <li>“who created you” - Elera will tell you who created it.</li> <li>“weather” - Elera will ask you the city and give you the temperature, humidity and weather description of that city.</li> <li>“time” - Elera will tell you the current time.</li> <li>“wolf” - You can ask any computation or geographic questions to Elera using Wolfram Alpha. For example, “what is the capital of England?” or “what is 5 * 5”.</li> <li>“flip a coin” - Elera will flip a coin and give you either heads or tails.</li> <li>“exit” - Elera will say goodbye and exit.</li> </ul>
