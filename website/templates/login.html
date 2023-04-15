@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block title %}Login{% endblock %} {% block content
+%}
+<form method="POST">
+  <h3 align="center">Elera Login</h3>
+  <img src="{{ url_for('static', filename='logo-black.png') }}" alt="My Image">
+  <div class="form-group">
+    <label for="email">Email Address</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      name="email"
+      placeholder="Enter email"
+    />
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      name="password"
+      placeholder="Enter password"
+    />
+  </div>
+  <br />
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>
+<footer>
+  <div class="footer-content">
+    <h3>Clutch Gurus</h3>
+    <p><strong>Your Virtual Assistant</strong></p>
+    <ul class="socials">
+      <li><a href="https://github.com/perezj2020/CEN4010_SP23_G12"><i class="fa fa-github"></i></a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <p>Copyright &copy; 2023 Company Name | Designed by <a href="#">Clutch Gurus</a></p>
+  </div>
+</footer>
+{% endblock %}
