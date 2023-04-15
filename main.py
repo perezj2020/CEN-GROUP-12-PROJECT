@@ -1,10 +1,3 @@
-import pyttsx3
-import speech_recognition as sr
-import datetime
-import random
-import wikipedia
-import webbrowser
-import pyjokes
 import tkinter as tk
 import threading
 from tkinter import scrolledtext
@@ -60,7 +53,15 @@ def get_command(textbox):
 
 def open_website(url):
     webbrowser.open(url)
+def wolf():
+        speak("Ask any question")
+        question=get_command()
 
+        app_id = "5AKJW8-WRERQJRA54"
+        client = wolframalpha.Client(app_id)
+        res = client.query(question)
+        wolf.answer = next(res.results).text
+        speak(wolf.answer)
 def get_wikipedia_summary(topic):
     get_wikipedia_summary.summary = wikipedia.summary(topic, sentences=3)
     print(get_wikipedia_summary.summary)
@@ -71,15 +72,6 @@ def tell_joke():
     print(joke)
     speak(joke)
 
-def wolf():
-    speak("Ask any question")
-    question=get_command()
-
-    app_id = "5AKJW8-WRERQJRA54"
-    client = wolframalpha.Client(app_id)
-    res = client.query(question)
-    wolf.answer = next(res.results).text
-    speak(wolf.answer)
 
 def flip_coin():
     return random.choice(["You got Heads","You got Tails"])
@@ -98,33 +90,7 @@ def show_note():
     print(file.read())
     speak(file.read(1))
 
-def weather():
-    api_key="d789fa866167225e96612704efeeeeed"
-    base_url="https://api.openweathermap.org/data/2.5/weather?"
-    speak("what is the city name")
-    city_name=get_command()
-    complete_url=base_url+"appid="+api_key+"&q="+city_name
-    response = requests.get(complete_url)
-    x=response.json()
-    if x["cod"]!="404":
-        y=x["main"]
-        current_temperature = y["temp"]
-        fahrenheit=((current_temperature-273.15)*9/5)+32
-        current_humidiy = y["humidity"]
-        z = x["weather"]
-        weather_description = z[0]["description"]
-        speak(" Temperature in fahrenheit unit is " +
-            str(fahrenheit) +
-            "\n humidity in percentage is " +
-            str(current_humidiy) +
-            "\n description  " +
-            str(weather_description))
-        print(" Temperature in fahrenheit = " +
-            str(fahrenheit) +
-                "\n humidity (in percentage) = " +
-                str(current_humidiy) +
-                "\n description = " +
-                str(weather_description))
+
 class GUI:
     def __init__(self):
         self.root = tk.Tk()
@@ -150,7 +116,45 @@ class GUI:
         with open("notes.txt", "a") as file:
             file.write(f"[{now.strftime('%Y-%m-%d %H:%M:%S')}] {note_text}\n")
         speak("Note saved.")
+    
+    def wolf(self):
+        speak("Ask any question")
+        question=get_command(self.textbox)
 
+        app_id = "5AKJW8-WRERQJRA54"
+        client = wolframalpha.Client(app_id)
+        res = client.query(question)
+        wolf.answer = next(res.results).text
+        speak(wolf.answer)
+
+
+    def weather(self):
+        api_key="d789fa866167225e96612704efeeeeed"
+        base_url="https://api.openweathermap.org/data/2.5/weather?"
+        speak("what is the city name")
+        city_name=get_command(self.textbox)
+        complete_url=base_url+"appid="+api_key+"&q="+city_name
+        response = requests.get(complete_url)
+        x=response.json()
+        if x["cod"]!="404":
+            y=x["main"]
+            current_temperature = y["temp"]
+            fahrenheit=((current_temperature-273.15)*9/5)+32
+            current_humidiy = y["humidity"]
+            z = x["weather"]
+            weather_description = z[0]["description"]
+            speak(" Temperature in fahrenheit unit is " +
+                str(fahrenheit) +
+                "\n humidity in percentage is " +
+                str(current_humidiy) +
+                "\n description  " +
+                str(weather_description))
+            print(" Temperature in fahrenheit = " +
+                str(fahrenheit) +
+                    "\n humidity (in percentage) = " +
+                    str(current_humidiy) +
+                    "\n description = " +
+                    str(weather_description))
     def run_assistant(self):
         greet()
         self.textbox.insert(tk.END, "Assistant: " + "My name is Elara. How can I help you today?" + "\n")
@@ -187,7 +191,7 @@ class GUI:
                 speak("Opening Facebook")
                 self.textbox.insert(tk.END, "Assistant: " + "Opening Facebook" + "\n")
             elif "open twitter" in command:
-                open_website("https://twitter.com/home")
+                open_website("https://twitter.com/")
                 speak("Opening Twitter")
                 self.textbox.insert(tk.END, "Assistant: " + "Opening Twitter" + "\n")
             elif "open yahoo" in command:
@@ -209,13 +213,14 @@ class GUI:
             elif "show the note" in command:
                 show_note()
                 file = open("notes.txt", "r")
-                self.textbox.insert(tk.END, f"Assistant:{file.read()} \n")
+                self.textbox.insert(tk.END, f"Assistant:{file.read()} + \n")
             elif "how are you" in command:
                 speak("I am well")
                 self.textbox.insert(tk.END, "Assistant: " + "I am well" + "\n")
             elif "what is your name" in command:
                 speak("My name is Elera")
                 self.textbox.insert(tk.END, "Assistant: " + "My name is Elera" + "\n")
+
 
             elif "music" in command:
                 open_website("https://www.youtube.com/live/jfKfPfyJRdk?feature=share")
@@ -224,13 +229,14 @@ class GUI:
             elif "coin" in command:
                 speak(flip_coin())
             elif "wolf" in command:
-                wolf()
+                self.wolf()
                 self.textbox.insert(tk.END, f"Assistant:{wolf.answer}  \n")
             elif "time" in command:
                 speak(ctime())
                 self.textbox.insert(tk.END, f"Assistant:{ctime()}  \n")
-            elif "weather" in command:
-                weather()
+            elif "weather" in command or "temperature" in command:
+                self.weather()
+                
 
             elif "stop" in command or "exit" in command or "quit" in command:
                 speak("Goodbye!")
