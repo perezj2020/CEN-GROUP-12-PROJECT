@@ -1,4 +1,4 @@
-<h1>Elera: A Virtual Assistant</h1> <p>Elera is a virtual assistant that can perform various tasks using voice commands. It can search the web, tell jokes, write notes, play music, and more.</p>
+<h1>Elera: A Virtual Assistant</h1> <p>Elera is a virtual assistant that can perform various tasks using voice commands. It can search the web, tell jokes, write notes, play music, and more. <strong>The Code for the Website is in the branch called master</strong></p>
 <h3>URL: http://tile561.pythonanywhere.com/ </h3>
 <h2>Installation</h2> <p>To run Elera, you need to install some dependencies using <code>pip install</code> in your terminal. The dependencies are:</p> <ul> <li>pyttsx3</li> <li>SpeechRecognition</li> <li>wikipedia</li> <li>pyjokes</li> <li>wolframalpha</li> <li>requests</li> <li>PyAudio</li> </ul>
 
